@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="In_Class_Problem_To_Do_List_DB.MainPage">
+
+    <Grid RowDefinitions="*, 60">
+        <ListView Grid.Row="0" ItemsSource="{Binding Items}" x:Name="listToDo">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid ColumnDefinitions="40, *, 100" Margin="20">
+                            <CheckBox Grid.Column="0" IsChecked="{Binding IsCompleted}"/>
+                            <Border BackgroundColor="#FFBBBB" Grid.Column="1" 
+                                    Grid.ColumnSpan="2"
+                                    Stroke="Black"
+                                    StrokeThickness="2"
+                                    StrokeShape="RoundRectangle 5"/>
+                            <Label Text="{Binding Text}" Grid.Column="1"
+                                   VerticalTextAlignment="Center"
+                                   Padding="10, 0, 0, 0"/>
+                            <Label Text="{Binding DateMade}" Grid.Column="2"
+                                   HorizontalTextAlignment="End" VerticalTextAlignment="End"
+                                   FontAttributes="Italic" FontSize="12"
+                                   Padding="0, 0, 15, 5"/>      
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+        <HorizontalStackLayout Grid.Row="1" Padding="5">
+            <Button Text="Add New Item" Clicked="AddNewItem" />
+        </HorizontalStackLayout>
+
+        <!--
+       -->
+    </Grid>
+
+</ContentPage>
